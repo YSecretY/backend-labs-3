@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  laravel:
+    build:
+      context: ./laravel
+    ports:
+      - "8001:8001"
+    networks:
+      - app-network
+
+  koa:
+    build:
+      context: ./koa
+    ports:
+      - "8002:8002"
+    networks:
+      - app-network
+
+  django:
+    build:
+      context: ./django
+    ports:
+      - "8003:8003"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
